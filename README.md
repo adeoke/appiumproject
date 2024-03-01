@@ -36,3 +36,45 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 In my case I have a zsh shell (you can check your shell by typing echo $SHELL on your terminal to verify),
 I updated my ~.zshrc to include these exports.
 
+# Appium drivers
+
+In order for the appium server to communicate with the desired platform, e.g., iOS or Android, appium needs
+a driver. You can check the list of drivers by inputting the following into the terminal:
+
+```shell
+appium driver list 
+
+✔ Listing available drivers
+- uiautomator2 [not installed]
+- xcuitest [not installed]
+- mac2 [not installed]
+- espresso [not installed]
+- safari [not installed]
+- gecko [not installed]
+- chromium [not installed]
+```
+
+The output will show what is available and what is installed already as seen above.
+For Android you will want to install UiAutomator2 and for iOS this will be XCUITest.
+
+For example, install uiautomator2 by typing the following:
+
+```shell
+appium driver install uiautomator2
+```
+
+# running the test against an emulator
+
+navigate to the following location :
+
+```shell
+/Users/USERNAME/Library/Android/sdk && ./emulator/emulator -list-avds
+```
+
+Which will return the list of emulators. One you have the name of the emulator you want then 
+run it by the following:
+
+```shell
+emulator -avd NAME_OF_DEVICE
+```
+
